@@ -14,6 +14,24 @@ body {
   border: 1px solid #fff;
 }
 
+.search-form-input {
+  width: 80%;
+  height: 52px;
+  border: none;
+  border-radius: 15px;
+  padding-left: 20px;
+  margin-bottom: 40px;
+  font-weight: bolder;
+}
+.search-form-button {
+  height: 52px;
+  width: 15%;
+  border: none;
+  border-radius: 15px;
+  padding: 10px;
+  margin-left: 25px;
+}
+
 footer {
   font-size: 80%;
   text-align: center;
