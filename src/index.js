@@ -1,6 +1,6 @@
 //date
-function actualDay() {
-  let actualDay = new Date();
+function actualDay(actualDay) {
+  //let actualDay = new Date();
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let day = days[actualDay.getDay()];
   let hours = actualDay.getHours();
@@ -12,8 +12,9 @@ function actualDay() {
   return stringTime;
 }
 
+let actualDate = new Date();
 let changeDay = document.querySelector("#main-day");
-changeDay.innerHTML = actualDay();
+changeDay.innerHTML = actualDay(actualDate);
 
 //change temperature for find city
 function displayWeather(response) {
@@ -34,6 +35,10 @@ function displayWeather(response) {
   let weatherCondition = document.querySelector("#condition");
   let condition = response.data.weather[0].description;
   weatherCondition.innerHTML = condition;
+  // icon description
+  let weatherIcon = document.querySelector("#iconMain");
+  let icon = `<img src="https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png" />`;
+  weatherIcon.innerHTML = icon;
 }
 
 // Search-change city and click changeTemp
@@ -84,6 +89,7 @@ function geoPosition(position) {
   let urlGeo = `https://api.openweathermap.org/data/2.5/weather?lat=${lanGeo}&lon=${longGeo}&appid=${key}&units=metric`;
   axios.get(urlGeo).then(displayWeatherMain);
 }
+
 //change site with actual GEO
 function displayWeatherMain(response) {
   let weatherTempMain = document.querySelector("#temp-actual");
@@ -104,7 +110,12 @@ function displayWeatherMain(response) {
   let weatherCondition = document.querySelector("#condition");
   let condition = response.data.weather[0].description;
   weatherCondition.innerHTML = condition;
-  console.log(response.data);
+  // icon description
+  //console.log(response.data.weather[0].icon);
+  let weatherIcon = document.querySelector("#iconMain");
+
+  let icon = `<img src="https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png" />`;
+  weatherIcon.innerHTML = icon;
 }
 
 navigator.geolocation.getCurrentPosition(geoPosition);
