@@ -37,7 +37,7 @@ function displayWeather(response) {
   weatherCondition.innerHTML = condition;
   // icon description
   let weatherIcon = document.querySelector("#iconMain");
-  let icon = `<img src="https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png" />`;
+  let icon = `<img src="https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png" class ="weather-icon"/>`;
   weatherIcon.innerHTML = icon;
 }
 

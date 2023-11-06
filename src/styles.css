@@ -55,6 +55,9 @@ h2 {
   font-size: 60px;
   text-align: center;
 }
+.weather-icon {
+  height: 50px;
+}
 
 .humidity-wind {
   padding-left: 80px;
