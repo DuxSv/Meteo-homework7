@@ -26,6 +26,10 @@ function displayWeather(response) {
   let weatherHumidity = document.querySelector("#humididty");
   let humidity = Math.round(response.data.main.humidity);
   weatherHumidity.innerHTML = humidity;
+  //change wind
+  let weatherWind = document.querySelector("#wind");
+  let windSpeed = Math.round(response.data.wind.speed);
+  weatherWind.innerHTML = windSpeed;
 }
 
 // Search-change city and click changeTemp
@@ -84,6 +88,14 @@ function displayWeatherMain(response) {
 
   weatherTempMain.innerHTML = temperature;
   weatherCityMain.innerHTML = response.data.name;
+  //change humidity
+  let weatherHumidity = document.querySelector("#humididty");
+  let humidity = Math.round(response.data.main.humidity);
+  weatherHumidity.innerHTML = humidity;
+  //change wind
+  let weatherWind = document.querySelector("#wind");
+  let windSpeed = Math.round(response.data.wind.speed);
+  weatherWind.innerHTML = windSpeed;
 }
 
 navigator.geolocation.getCurrentPosition(geoPosition);
