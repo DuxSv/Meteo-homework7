@@ -30,6 +30,10 @@ function displayWeather(response) {
   let weatherWind = document.querySelector("#wind");
   let windSpeed = Math.round(response.data.wind.speed);
   weatherWind.innerHTML = windSpeed;
+  //change condition
+  let weatherCondition = document.querySelector("#condition");
+  let condition = response.data.weather[0].description;
+  weatherCondition.innerHTML = condition;
 }
 
 // Search-change city and click changeTemp
@@ -96,6 +100,11 @@ function displayWeatherMain(response) {
   let weatherWind = document.querySelector("#wind");
   let windSpeed = Math.round(response.data.wind.speed);
   weatherWind.innerHTML = windSpeed;
+  //change condition
+  let weatherCondition = document.querySelector("#condition");
+  let condition = response.data.weather[0].description;
+  weatherCondition.innerHTML = condition;
+  console.log(response.data);
 }
 
 navigator.geolocation.getCurrentPosition(geoPosition);
