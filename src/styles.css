@@ -40,7 +40,7 @@ body {
   flex-wrap: wrap;
   max-height: 100px;
   padding: 0;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
 .town-time {
@@ -70,7 +70,42 @@ h1 {
   opacity: 0.8;
   margin: 0 auto;
 }
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.weather-forecast {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
 
+.weather-forecast-date {
+  text-align: center;
+  color: #092238;
+  font-size: 16px;
+  line-height: 18px;
+  margin-bottom: 10px;
+}
+
+.weather-forecast-icon {
+  height: 50px;
+  text-align: center;
+}
+.weather-forecast-temperatures {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 10px;
+  color: #092238;
+  display: flex;
+  justify-content: center;
+}
+
+.weather-forecast-temperature {
+  padding: 0 10px;
+}
 footer {
   font-size: 80%;
   text-align: center;
