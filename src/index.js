@@ -39,14 +39,15 @@ function displayWeather(response) {
   let weatherIcon = document.querySelector("#iconMain");
   let icon = `<img src="https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png" class ="weather-icon"/>`;
   weatherIcon.innerHTML = icon;
+  let city = document.querySelector("#main-city");
+  city.innerHTML = response.data.name;
+  getWeekWeather(response.data.name);
 }
 
 // Search-change city and click changeTemp
 function changeCity(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#exampleInputEmail1");
-  let city = document.querySelector("#main-city");
-  city.innerHTML = cityInput.value;
 
   //know temperature actual and call change temp
   let key = "5f472b7acba333cd8a035ea85a0d4d4c";
@@ -116,17 +117,28 @@ function displayWeatherMain(response) {
 
   let icon = `<img src="https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png" class ="weather-icon"/>`;
   weatherIcon.innerHTML = icon;
+
+  getWeekWeather(response.data.name);
 }
 
 navigator.geolocation.getCurrentPosition(geoPosition);
 
+// get weather information from Forecast
+function getWeekWeather(city) {
+  let apiKey = "t758dfo6497f0ccb733838c9b0b4a2a7";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+  axios(apiUrl).then(displayWeekWeather);
+}
 //add week temperature in HTML
 
-function displayWeekWeather() {
+function displayWeekWeather(response) {
+  console.log(response.data);
   let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
-
+  let weekWeather = "";
   days.forEach(function (day) {
-    weekWeather.innerHTML += `
+    weekWeather =
+      weekWeather +
+      `
 <div class="weather-forecast-day">
   <div class="weather-forecast-date">${day}</div>
   <div class="weather-forecast-icon">
@@ -143,8 +155,7 @@ function displayWeekWeather() {
   </div>
 </div>`;
   });
-  let weekWeatherForecast = document.querySelector("weekWeather");
+
+  let weekWeatherForecast = document.querySelector("#weekWeather");
   weekWeatherForecast.innerHTML = weekWeather;
 }
-
-displayWeekWeather();
