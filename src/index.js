@@ -119,3 +119,32 @@ function displayWeatherMain(response) {
 }
 
 navigator.geolocation.getCurrentPosition(geoPosition);
+
+//add week temperature in HTML
+
+function displayWeekWeather() {
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  days.forEach(function (day) {
+    weekWeather.innerHTML += `
+<div class="weather-forecast-day">
+  <div class="weather-forecast-date">${day}</div>
+  <div class="weather-forecast-icon">
+    <img
+      src="https://openweathermap.org/img/wn/01d@2x.png"
+      class="weather-forecast-icon"
+    />
+  </div>
+  <div class="weather-forecast-temperatures">
+    <div class="weather-forecast-temperature">
+      <strong>15º</strong>
+    </div>
+    <div class="weather-forecast-temperature">9º</div>
+  </div>
+</div>`;
+  });
+  let weekWeatherForecast = document.querySelector("weekWeather");
+  weekWeatherForecast.innerHTML = weekWeather;
+}
+
+displayWeekWeather();
