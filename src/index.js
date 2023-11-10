@@ -59,28 +59,6 @@ function changeCity(event) {
 let formCity = document.querySelector("#city-form");
 formCity.addEventListener("submit", changeCity);
 
-/*
-//Change C and F
-let tempCelsiuActual = document.querySelector("#temp-actual");
-let tempMainCelsiu = parseInt(tempCelsiuActual.textContent);
-
-//console.log(tempMainCelsiu);
-
-function changeCelsiu() {
-  tempCelsiuActual.innerHTML = tempMainCelsiu;
-}
-function changeFarengeit() {
-  let changeFarengeit = Math.floor((tempMainCelsiu * 9) / 5 + 32);
-  tempCelsiuActual.innerHTML = changeFarengeit;
-}
-
-let tempCelsiu = document.querySelector("#temp-celsiu");
-tempCelsiu.addEventListener("click", changeCelsiu);
-
-let tempFarengeit = document.querySelector("#temp-farengeit");
-tempFarengeit.addEventListener("click", changeFarengeit);
-*/
-
 //find actual geolocation
 
 function geoPosition(position) {
@@ -122,6 +100,7 @@ function displayWeatherMain(response) {
 }
 
 navigator.geolocation.getCurrentPosition(geoPosition);
+
 // format days for week
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
@@ -129,6 +108,7 @@ function formatDay(timestamp) {
 
   return days[date.getDay()];
 }
+
 // get weather information from Forecast
 function getWeekWeather(city) {
   let apiKey = "t758dfo6497f0ccb733838c9b0b4a2a7";
